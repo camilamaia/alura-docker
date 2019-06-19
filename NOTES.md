@@ -13,9 +13,6 @@ Segue também uma breve lista dos comandos utilizados:
 
 ```bash
 docker version # exibe a versão do docker.
-```
-
-```bash
 docker run NOME_DA_IMAGEM # cria um container com a respectiva imagem passada como parâmetro.
 ```
 
@@ -33,49 +30,16 @@ Segue também uma breve lista dos comandos utilizados:
 
 ```bash
 docker ps # exibe todos os containers em execução no momento.
-```
-
-```bash
 docker ps -a # exibe todos os containers, independentemente de estarem em execução ou não.
-```
-
-```bash
 docker run -it NOME_DA_IMAGEM # conecta o terminal que estamos utilizando com o do container.
-```
-
-```bash
 docker start ID_CONTAINER # inicia o container com id em questão.
-```
-
-```bash
 docker stop ID_CONTAINER # interrompe o container com id em questão.
-```
-
-```bash
 docker start -a -i ID_CONTAINER # inicia o container com id em questão e integra os terminais, além de permitir interação entre ambos.
-```
-
-```bash
 docker rm ID_CONTAINER # remove o container com id em questão.
-```
-
-```bash
 docker container prune # remove todos os containers que estão parados.
-```
-
-```bash
 docker rmi NOME_DA_IMAGEM # remove a imagem passada como parâmetro.
-```
-
-```bash
 docker run -d -P --name NOME dockersamples/static-site # ao executar, dá um nome ao container.
-```
-
-```bash
 docker run -d -p 12345:80 dockersamples/static-site # define uma porta específica para ser atribuída à porta 80 do container, neste caso 12345.
-```
-
-```bash
 docker run -d -e AUTHOR="Fulano" dockersamples/static-site # define uma variável de ambiente AUTHOR com o valor Fulano no container criado.
 ```
 
@@ -91,9 +55,6 @@ Segue também uma breve lista dos comandos utilizados:
 
 ```bash
 docker run -v "CAMINHO_VOLUME" NOME_DA_IMAGEM # cria um volume no respectivo caminho do container.
-```
-
-```bash
 docker inspect ID_CONTAINER # retorna diversas informações sobre o container.
 ```
 
@@ -117,21 +78,24 @@ Segue também uma breve lista dos comandos utilizados:
 
 ```bash
 docker build -f Dockerfile # Cria uma imagem a partir de um Dockerfile.
-```
-
-```bash
 docker build -f CAMINHO_DOCKERFILE/Dockerfile -t NOME_USUARIO/NOME_IMAGEM
 # constrói e nomeia uma imagem não-oficial informando o caminho para o Dockerfile.
-```
-
-```bash
 docker login # inicia o processo de login no Docker Hub.
-```
-
-```bash
 docker push NOME_USUARIO/NOME_IMAGEM # envia a imagem criada para o Docker Hub.
+docker pull NOME_USUARIO/NOME_IMAGEM # baixa a imagem desejada do Docker Hub.
 ```
 
+##  Comunicação entre containers
+
+Neste capítulo aprendemos:
+* Que imagens criadas pelo Docker acessam a mesma rede, porém apenas através de IP.
+* Ao criar uma rede é possível realizar a comunicação entre os containers através do seu nome.
+* Que durante a criação de uma rede precisamos indicar qual driver utilizaremos, geralmente, o driver bridge.
+
+Segue também uma breve lista dos comandos utilizados:
+
 ```bash
-docker pull NOME_USUARIO/NOME_IMAGEM # baixa a imagem desejada do Docker Hub.
+hostname -i # mostra o ip atribuído ao container pelo docker (funciona apenas dentro do container).
+docker network create --driver bridge NOME_DA_REDE # cria uma rede especificando o driver desejado.
+docker run -it --name NOME_CONTAINER --network NOME_DA_REDE NOME_IMAGEM # cria um container especificando seu nome e qual rede deverá ser usada.
 ```
