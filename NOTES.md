@@ -2,6 +2,8 @@ https://hub.docker.com/r/camilamaia/node
 
 ## Introdução ao Docker
 
+O Docker é executado em cima de uma micro máquina virtual, chamada Alpine Linux, onde será executada a sua Docker Engine
+
 Nessa aula você:
 * conheceu a ideia de virtualização,
 * entendeu o conceito de containers,
