@@ -99,3 +99,20 @@ hostname -i # mostra o ip atribuído ao container pelo docker (funciona apenas d
 docker network create --driver bridge NOME_DA_REDE # cria uma rede especificando o driver desejado.
 docker run -it --name NOME_CONTAINER --network NOME_DA_REDE NOME_IMAGEM # cria um container especificando seu nome e qual rede deverá ser usada.
 ```
+
+
+## Trabalhando com o Docker Compose
+
+Nessa aula aprendemos:
+    * A necessidade de usar o Docker Compose
+    * Configurar o build de vários containers através do docker-compose.yml
+    * Subir e parar os containers de maneira coordenada com Docker Compose
+
+Segue também uma breve lista dos novos comandos utilizados:
+
+```bash
+docker-compose up # sobe os serviços criados
+docker-compose down # para os serviços criados.
+docker-compose ps # lista os serviços que estão rodando.
+docker exec -it alura-books-1 ping node2 # executa o comando ping node2 dentro do container alura-books-1
+```
