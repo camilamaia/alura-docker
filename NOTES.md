@@ -79,8 +79,8 @@ Segue também uma breve lista dos comandos utilizados:
 
 
 ```bash
-docker build -f Dockerfile # Cria uma imagem a partir de um Dockerfile.
-docker build -f CAMINHO_DOCKERFILE/Dockerfile -t NOME_USUARIO/NOME_IMAGEM
+docker build -f Dockerfile . # Cria uma imagem a partir de um Dockerfile.
+docker build -f CAMINHO_DOCKERFILE/Dockerfile -t NOME_USUARIO/NOME_IMAGEM .
 # constrói e nomeia uma imagem não-oficial informando o caminho para o Dockerfile.
 docker login # inicia o processo de login no Docker Hub.
 docker push NOME_USUARIO/NOME_IMAGEM # envia a imagem criada para o Docker Hub.
